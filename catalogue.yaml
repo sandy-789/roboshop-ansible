@@ -16,7 +16,7 @@
       name: roboshop
 
    - name: Recursively remove app directory
-    ansible.builtin.file:
+     ansible.builtin.file:
       path: /app
       state: absent
 
