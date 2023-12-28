@@ -9,10 +9,10 @@
    - name: Install node js
      ansible.builtin.dnf:
       name: nodejs
-      state: yes
+      state: present
 
    - name: create  roboshop user
-     ansible.built.user:
+     ansible.builtin.user:
       name: roboshop
 
    - name: Recursively remove app directory
@@ -25,14 +25,14 @@
       path: /app
       state: directory
 
-   - name: download cart application
+   - name: download catalogue application
      ansible.builtin.get_url:
       url: https://roboshop-builds.s3.amazonaws.com/catalogue.zip
       dest: /tmp
 
-   - name: extract cart application
+   - name: extract catalogue application
      ansible.builtin.unarchive:
-      src: /tmp/cart.zip
+      src: /tmp/catalogue.zip
       dest: /app
       remote_src: yes
 
@@ -41,7 +41,7 @@
      args:
       chdir: /app
 
-   - name: copy cart service
+   - name: copy catalogue service
      ansible.builtin.copy:
       src: catalogue.service
       dest: /etc/systemd/system/catalogue.service
