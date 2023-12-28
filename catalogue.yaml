@@ -36,10 +36,10 @@
       dest: /app
       remote_src: yes
 
-   - name: install dependencies     
-     ansible.buitlin.command: npm install
+   - name: Install dependencies
+     ansible.builtin.command: npm install
      args:
-      chdir: /app
+       chdir: /app
 
    - name: copy catalogue service
      ansible.builtin.copy:
