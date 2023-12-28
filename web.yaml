@@ -18,7 +18,7 @@
       state: directory
 
    - name: download web app
-     ansibile.builtin.get_url:
+     ansible.builtin.get_url:
       url: https://roboshop-builds.s3.amazonaws.com/web.zip
       dest: /tmp
 
